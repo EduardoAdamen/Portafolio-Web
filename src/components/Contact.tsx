@@ -18,7 +18,7 @@ export default function Contact() {
 
   return (
     <section className="contact" id="contact" ref={ref}>
-      <h2 className={`section-label ${inView ? 'animate-in--fade' : 'animate-in'}`}>Contacto</h2>
+      <h2 className={`section-heading ${inView ? 'animate-in--fade' : 'animate-in'}`}>Contacto</h2>
       <p className={`contact-intro ${inView ? 'animate-in--visible animate-in--delay-1' : 'animate-in'}`}>
         ¿Tienes un proyecto en mente o solo quieres saludar? Siempre estoy abierto a
         conversaciones interesantes y nuevas oportunidades.

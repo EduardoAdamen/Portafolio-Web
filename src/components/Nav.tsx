@@ -61,7 +61,7 @@ export default function Nav() {
 
   return (
     <nav className="nav" role="navigation" aria-label="Navegación principal">
-      <a href="#hero" className="nav-logo" onClick={closeMenu}>Cesar</a>
+      <a href="#hero" className="nav-logo" onClick={closeMenu}>Eduardo Adame</a>
 
       <ul className={`nav-links${menuOpen ? ' nav-links--open' : ''}`} ref={menuRef}>
         {links.map((link) => (
@@ -79,7 +79,7 @@ export default function Nav() {
 
       <div className="nav-actions">
         <a href="#contact" className="btn-ghost" onClick={closeMenu}>Contactar</a>
-        <a href="#contact" className="btn-filled" onClick={closeMenu}>
+        <a href="/CV.pdf" className="btn-filled" onClick={closeMenu} download>
           Descargar CV
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
             <path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>

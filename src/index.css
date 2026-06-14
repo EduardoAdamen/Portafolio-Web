@@ -5,7 +5,7 @@
   --color-charcoal: #242424;
   --color-graphite: #4e4d4d;
   --color-slate-shadow: #3d3d3d;
-  --color-warm-stone: #635f5d;
+  --color-warm-stone: #797776;
   --color-lavender-mist: #cfdaf5;
   --color-peach-to-periwinkle-wash: #ff9473;
   --gradient-peach-to-periwinkle-wash: linear-gradient(rgba(255, 148, 115, 0.8) 7%, rgba(160, 181, 235, 0.8) 83.82%);
@@ -48,6 +48,7 @@
   --font-weight-medium: 500;
 
   /* Spacing */
+  --spacing-4: 4px;
   --spacing-8: 8px;
   --spacing-12: 12px;
   --spacing-16: 16px;

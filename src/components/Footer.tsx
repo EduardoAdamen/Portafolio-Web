@@ -21,15 +21,15 @@ const groups = [
     heading: 'Redes',
     links: [
       { label: 'Correo', href: 'mailto:hello@cesar.dev' },
-      { label: 'GitHub', href: '#' },
-      { label: 'LinkedIn', href: '#' },
+      { label: 'GitHub', href: 'https://github.com/eduardo-adame' },
+      { label: 'LinkedIn', href: 'https://github.com/EduardoAdamen' },
     ],
   },
   {
     heading: 'Contacto',
     links: [
       { label: 'hello@cesar.dev', href: 'mailto:hello@cesar.dev' },
-      { label: 'Descargar CV', href: '#contact' },
+      { label: 'Descargar CV', href: '/CV.pdf' },
     ],
   },
 ]
@@ -43,16 +43,16 @@ export default function Footer() {
             <h4 className="footer-group-heading">{group.heading}</h4>
             <ul className="footer-links">
               {group.links.map((link) => (
-                <li key={link.label}>
-                  <a href={link.href} className="footer-link">{link.label}</a>
-                </li>
+        <li key={link.label}>
+          <a href={link.href} className="footer-link" {...link.label === 'Descargar CV' ? { download: '' } : {}}>{link.label}</a>
+        </li>
               ))}
             </ul>
           </div>
         ))}
       </div>
       <div className="footer-bottom">
-        &copy; {new Date().getFullYear()} Cesar. Hecho con React, TypeScript y Vite.
+        &copy; {new Date().getFullYear()} Eduardo Adame. Hecho con React, TypeScript y Vite.
       </div>
     </footer>
   )

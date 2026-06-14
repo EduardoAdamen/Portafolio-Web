@@ -33,7 +33,7 @@ export default function Skills() {
 
   return (
     <section className="skills" id="skills" ref={ref}>
-      <h2 className={`section-label ${inView ? 'animate-in--fade' : 'animate-in'}`}>Habilidades Técnicas</h2>
+      <h2 className={`section-heading ${inView ? 'animate-in--fade' : 'animate-in'}`}>Habilidades Técnicas</h2>
       <div className={`skills-grid ${inView ? 'animate-in--visible' : 'animate-in'}`}>
         {groups.map((group) => (
           <div key={group.name}>

@@ -89,53 +89,6 @@
   color: var(--color-ink-black);
 }
 
-/* Architecture diagram */
-
-.arch-diagram {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-8);
-  padding-top: var(--spacing-24);
-  flex-wrap: wrap;
-}
-
-.arch-diagram-group {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-8);
-}
-
-.arch-tag {
-  padding: 6px 14px;
-  border: 1px solid var(--color-ink-black);
-  border-radius: var(--radius-tags);
-  font-size: 11px;
-  letter-spacing: 0;
-  background: var(--surface-parchment-canvas);
-  white-space: nowrap;
-}
-
-.arch-center-node {
-  width: 64px;
-  height: 64px;
-  border: 1.5px solid var(--color-ink-black);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-abc-diatype-mono);
-  font-size: 10px;
-  letter-spacing: 0;
-  background: var(--surface-parchment-canvas);
-  flex-shrink: 0;
-}
-
-.arch-connector {
-  flex-shrink: 0;
-  color: var(--color-ink-black);
-  opacity: 0.4;
-}
-
 /* --- Full-width case study layout --- */
 
 .project-card--fullwidth {
@@ -187,9 +140,43 @@
 
 .project-card-visual {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
+  gap: var(--spacing-16);
+}
+
+.project-image-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border: 1.5px dashed var(--color-slate-shadow);
+  border-radius: var(--radius-inputs);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-8);
+  opacity: 0.55;
+  transition: opacity 0.2s;
+}
+
+.project-image-placeholder:hover {
+  opacity: 0.8;
+}
+
+.project-image-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--color-slate-shadow);
+}
+
+.project-image-label {
+  font-family: var(--font-abc-diatype-mono);
+  font-size: var(--text-caption);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-slate-shadow);
 }
 
 .project-decision-callout {
@@ -228,15 +215,6 @@
 
   .project-decisions {
     grid-template-columns: 1fr;
-  }
-
-  .arch-diagram {
-    justify-content: center;
-    padding-top: 0;
-  }
-
-  .arch-connector {
-    transform: rotate(90deg);
   }
 
   .project-decision-callout {

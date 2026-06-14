@@ -7,7 +7,6 @@ interface ArchitectureProject {
   problem: string
   solution: string
   results: string[]
-  architecture: { left: string[]; center: string; right: string[] }
   tech: string[]
 }
 
@@ -44,11 +43,6 @@ const projects: Project[] = [
       'Tiempo de respuesta p99 menor a 200ms en eventos de venta',
       'Cero interrupciones en 12 eventos de venta importantes',
     ],
-    architecture: {
-      left: ['REACT', 'NEXT.JS', 'REDIS'],
-      center: 'TIENDA',
-      right: ['POSTGRESQL', 'STRIPE', 'AWS'],
-    },
     tech: ['React', 'Next.js', 'TypeScript', 'PostgreSQL', 'Redis', 'AWS', 'Stripe'],
   },
   {
@@ -81,26 +75,15 @@ const projects: Project[] = [
   },
 ]
 
-function ArchitectureDiagram({ left, center, right }: { left: string[]; center: string; right: string[] }) {
+function ProjectImagePlaceholder() {
   return (
-    <div className="arch-diagram" aria-label={`Arquitectura del sistema: ${left.join(', ')} → ${center} → ${right.join(', ')}`}>
-      <div className="arch-diagram-group">
-        {left.map((tag) => (
-          <span key={tag} className="arch-tag">{tag}</span>
-        ))}
-      </div>
-      <svg className="arch-connector" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+    <div className="project-image-placeholder" aria-hidden="true">
+      <svg className="project-image-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" strokeWidth="1.3" />
+        <circle cx="9" cy="9.5" r="2" stroke="currentColor" strokeWidth="1.3" />
+        <path d="M3 16.5l5-3 4 2 4-3 5 4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
-      <div className="arch-center-node">{center}</div>
-      <svg className="arch-connector" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-      <div className="arch-diagram-group">
-        {right.map((tag) => (
-          <span key={tag} className="arch-tag">{tag}</span>
-        ))}
-      </div>
+      <span className="project-image-label">Imagen del proyecto</span>
     </div>
   )
 }
@@ -112,86 +95,83 @@ export default function Projects() {
     <section className="projects" id="projects" ref={ref}>
       <h2 className={`section-label ${inView ? 'animate-in--fade' : 'animate-in'}`}>Proyectos Destacados</h2>
       <div className="projects-list">
-        {projects.map((p, i) => (
-          <article
-            key={p.title}
-            className={`project-card project-card--${p.layout} ${inView ? `animate-in--visible animate-in--delay-${i + 1}` : 'animate-in'}`}
-          >
-            {(() => {
-              if (p.layout === 'architecture') {
-                const arch = p as ArchitectureProject
-                return (
-                  <>
-                    <div className="project-card-text">
-                      <h3>{arch.title}</h3>
-                      <p><strong>Problema:</strong> {arch.problem}</p>
-                      <p><strong>Solución:</strong> {arch.solution}</p>
-                      <ul className="project-results">
-                        {arch.results.map((r) => (
-                          <li key={r}>{r}</li>
-                        ))}
-                      </ul>
-                      <div className="project-card-tech">
-                        {arch.tech.map((t) => (
-                          <span key={t} className="project-card-tech-item">{t}</span>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="project-card-visual">
-                      <ArchitectureDiagram left={arch.architecture.left} center={arch.architecture.center} right={arch.architecture.right} />
-                    </div>
-                  </>
-                )
-              }
+        {projects.map((p, i) => {
+          const animClass = inView ? `animate-in--visible animate-in--delay-${i + 1}` : 'animate-in'
 
-              if (p.layout === 'fullwidth') {
-                const fw = p as FullwidthProject
-                return (
-                  <>
-                    <div className="project-card-text">
-                      <h3>{fw.title}</h3>
-                      <p><strong>Problema:</strong> {fw.problem}</p>
-                      <p><strong>Solución:</strong> {fw.solution}</p>
-                    </div>
-                    <div className="project-decisions">
-                      {fw.decisions.map((d) => (
-                        <div key={d.label} className="project-decision">
-                          <span className="project-decision-label">{d.label}</span>
-                          <span className="project-decision-detail">{d.detail}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="project-card-tech">
-                      {fw.tech.map((t) => (
-                        <span key={t} className="project-card-tech-item">{t}</span>
-                      ))}
-                    </div>
-                  </>
-                )
-              }
-
-              const comp = p as CompactProject
-              return (
-                <>
+          if (p.layout === 'architecture') {
+            const arch = p as ArchitectureProject
+            return (
+              <article key={arch.title} className={`project-card project-card--architecture ${animClass}`}>
+                <div className="project-card-text">
+                  <h3>{arch.title}</h3>
+                  <p><strong>Problema:</strong> {arch.problem}</p>
+                  <p><strong>Solución:</strong> {arch.solution}</p>
+                  <ul className="project-results">
+                    {arch.results.map((r) => (
+                      <li key={r}>{r}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="project-card-visual">
+                  <ProjectImagePlaceholder />
                   <div className="project-card-tech">
-                    {comp.tech.map((t) => (
+                    {arch.tech.map((t) => (
                       <span key={t} className="project-card-tech-item">{t}</span>
                     ))}
                   </div>
-                  <div className="project-card-text">
-                    <h3>{comp.title}</h3>
-                    <p><strong>Problema:</strong> {comp.problem}</p>
-                    <p><strong>Solución:</strong> {comp.solution}</p>
-                  </div>
-                  <aside className="project-decision-callout">
-                    <strong className="project-decision-callout-label">{comp.decision.question}</strong>
-                    <p>{comp.decision.answer}</p>
-                  </aside>
-                </>
-              )
-            })()}
-          </article>
-        ))}
+                </div>
+              </article>
+            )
+          }
+
+          if (p.layout === 'fullwidth') {
+            const fw = p as FullwidthProject
+            return (
+              <article key={fw.title} className={`project-card project-card--fullwidth ${animClass}`}>
+                <ProjectImagePlaceholder />
+                <div className="project-card-text">
+                  <h3>{fw.title}</h3>
+                  <p><strong>Problema:</strong> {fw.problem}</p>
+                  <p><strong>Solución:</strong> {fw.solution}</p>
+                </div>
+                <div className="project-decisions">
+                  {fw.decisions.map((d) => (
+                    <div key={d.label} className="project-decision">
+                      <span className="project-decision-label">{d.label}</span>
+                      <span className="project-decision-detail">{d.detail}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="project-card-tech">
+                  {fw.tech.map((t) => (
+                    <span key={t} className="project-card-tech-item">{t}</span>
+                  ))}
+                </div>
+              </article>
+            )
+          }
+
+          const comp = p as CompactProject
+          return (
+            <article key={comp.title} className={`project-card project-card--compact ${animClass}`}>
+              <ProjectImagePlaceholder />
+              <div className="project-card-tech">
+                {comp.tech.map((t) => (
+                  <span key={t} className="project-card-tech-item">{t}</span>
+                ))}
+              </div>
+              <div className="project-card-text">
+                <h3>{comp.title}</h3>
+                <p><strong>Problema:</strong> {comp.problem}</p>
+                <p><strong>Solución:</strong> {comp.solution}</p>
+              </div>
+              <aside className="project-decision-callout">
+                <strong className="project-decision-callout-label">{comp.decision.question}</strong>
+                <p>{comp.decision.answer}</p>
+              </aside>
+            </article>
+          )
+        })}
       </div>
     </section>
   )

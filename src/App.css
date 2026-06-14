@@ -10,6 +10,14 @@
   margin-bottom: var(--spacing-8);
 }
 
+.section-heading {
+  font-family: var(--font-untitled-serif);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--text-heading);
+  letter-spacing: var(--tracking-heading);
+  margin-bottom: var(--spacing-8);
+}
+
 .btn-filled {
   display: inline-flex;
   align-items: center;
