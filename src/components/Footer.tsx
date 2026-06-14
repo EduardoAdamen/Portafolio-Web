@@ -2,35 +2,34 @@ import './Footer.css'
 
 const groups = [
   {
-    heading: 'Navigation',
+    heading: 'Navegación',
     links: [
-      { label: 'About', href: '#about' },
-      { label: 'Skills', href: '#skills' },
-      { label: 'Projects', href: '#projects' },
-      { label: 'Contact', href: '#contact' },
+      { label: 'Sobre mí', href: '#about' },
+      { label: 'Habilidades', href: '#skills' },
+      { label: 'Proyectos', href: '#projects' },
+      { label: 'Experiencia', href: '#experience' },
+      { label: 'Contacto', href: '#contact' },
     ],
   },
   {
-    heading: 'Projects',
+    heading: 'Proyectos',
     links: [
-      { label: 'E-Commerce Platform', href: '#projects' },
-      { label: 'Analytics Dashboard', href: '#projects' },
-      { label: 'API Gateway', href: '#projects' },
+      { label: 'Ver todos los proyectos', href: '#projects' },
     ],
   },
   {
-    heading: 'Social',
+    heading: 'Redes',
     links: [
+      { label: 'Correo', href: 'mailto:hello@cesar.dev' },
       { label: 'GitHub', href: '#' },
       { label: 'LinkedIn', href: '#' },
-      { label: 'Twitter', href: '#' },
     ],
   },
   {
-    heading: 'Contact',
+    heading: 'Contacto',
     links: [
       { label: 'hello@cesar.dev', href: 'mailto:hello@cesar.dev' },
-      { label: 'Download CV', href: '#contact' },
+      { label: 'Descargar CV', href: '#contact' },
     ],
   },
 ]
@@ -53,7 +52,7 @@ export default function Footer() {
         ))}
       </div>
       <div className="footer-bottom">
-        &copy; {new Date().getFullYear()} Cesar. Built with React, TypeScript &amp; Vite.
+        &copy; {new Date().getFullYear()} Cesar. Hecho con React, TypeScript y Vite.
       </div>
     </footer>
   )

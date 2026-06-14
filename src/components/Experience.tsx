@@ -4,24 +4,24 @@ import './Experience.css'
 const items = [
   {
     title: 'Senior Full Stack Developer',
-    company: 'Tech Company — Remote',
-    date: '2023 — Present',
+    company: 'Tech Company — Remoto',
+    date: '2023 — Actualidad',
     description:
-      'Lead development of customer-facing web applications serving 100k+ users. Architected microservices migration, reduced API latency by 40%, and mentored junior developers.',
+      'Lideré el desarrollo de aplicaciones web orientadas al cliente con más de 100 mil usuarios. Arquitectonicé la migración a microservicios, reduje la latencia de APIs en un 40% y mentoricé a desarrolladores junior.',
   },
   {
     title: 'Full Stack Developer',
-    company: 'Digital Agency — São Paulo',
+    company: 'Agencia Digital — São Paulo',
     date: '2021 — 2023',
     description:
-      'Built and maintained 15+ client projects across e-commerce, SaaS, and content platforms. Introduced TypeScript, automated testing, and CI/CD pipelines to the team workflow.',
+      'Construí y mantuve más de 15 proyectos freelance en comercio electrónico, SaaS y plataformas de contenido. Introduje TypeScript, pruebas automatizadas y pipelines de CI/CD en el flujo de trabajo del equipo.',
   },
   {
     title: 'Frontend Developer',
-    company: 'Startup — Remote',
+    company: 'Startup — Remoto',
     date: '2019 — 2021',
     description:
-      'Developed the frontend architecture for an early-stage analytics platform. Collaborated closely with design and product to ship features on a two-week release cycle.',
+      'Desarrollé la arquitectura frontend para una plataforma de analítica en etapa temprana. Colaboré estrechamente con diseño y producto para lanzar funciones en ciclos de dos semanas.',
   },
 ]
 
@@ -30,7 +30,7 @@ export default function Experience() {
 
   return (
     <section className="experience" id="experience" ref={ref}>
-      <h2 className={`section-label ${inView ? 'animate-in--fade' : 'animate-in'}`}>Experience</h2>
+      <h2 className={`section-label ${inView ? 'animate-in--fade' : 'animate-in'}`}>Experiencia</h2>
       <div className="experience-list">
         {items.map((item, i) => (
           <div key={item.title} className={`experience-item ${inView ? `animate-in--visible animate-in--delay-${i + 1}` : 'animate-in'}`}>

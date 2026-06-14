@@ -1,50 +1,195 @@
 import { useInView } from '../hooks/useInView'
 import './Projects.css'
 
-const projects = [
+interface ArchitectureProject {
+  title: string
+  layout: 'architecture'
+  problem: string
+  solution: string
+  results: string[]
+  architecture: { left: string[]; center: string; right: string[] }
+  tech: string[]
+}
+
+interface FullwidthProject {
+  title: string
+  layout: 'fullwidth'
+  problem: string
+  solution: string
+  decisions: { label: string; detail: string }[]
+  tech: string[]
+}
+
+interface CompactProject {
+  title: string
+  layout: 'compact'
+  problem: string
+  solution: string
+  decision: { question: string; answer: string }
+  tech: string[]
+}
+
+type Project = ArchitectureProject | FullwidthProject | CompactProject
+
+const projects: Project[] = [
   {
-    title: 'E-Commerce Platform',
-    problem: 'A growing retailer needed a scalable, performant online store that could handle high traffic during sales events without downtime.',
-    solution: 'Built a server-side rendered React storefront with a headless CMS, Redis caching layer, and auto-scaling infrastructure on AWS.',
+    title: 'Plataforma de Comercio Electrónico',
+    layout: 'architecture',
+    problem:
+      'Un minorista en crecimiento necesitaba una tienda en línea escalable y eficiente que pudiera manejar alto tráfico durante eventos de venta sin interrupciones.',
+    solution:
+      'Construí un frontend renderizado del lado del servidor con React, un CMS headless, una capa de caché con Redis e infraestructura de auto-escalado en AWS.',
+    results: [
+      '300% de aumento en capacidad de usuarios concurrentes',
+      'Tiempo de respuesta p99 menor a 200ms en eventos de venta',
+      'Cero interrupciones en 12 eventos de venta importantes',
+    ],
+    architecture: {
+      left: ['REACT', 'NEXT.JS', 'REDIS'],
+      center: 'TIENDA',
+      right: ['POSTGRESQL', 'STRIPE', 'AWS'],
+    },
     tech: ['React', 'Next.js', 'TypeScript', 'PostgreSQL', 'Redis', 'AWS', 'Stripe'],
-    gradient: 'peach',
   },
   {
-    title: 'Real-Time Analytics Dashboard',
-    problem: 'Customers could not make sense of their usage data — reports took hours to generate and were often stale by delivery.',
-    solution: 'Developed a streaming data pipeline processing 50k+ events/sec with live dashboards, configurable alerts, and instant drill-down.',
-    tech: ['Node.js', 'React', 'WebSocket', 'PostgreSQL', 'Docker', 'Chart.js', 'Nginx'],
-    gradient: 'mint',
+    title: 'Panel de Analíticas en Tiempo Real',
+    layout: 'fullwidth',
+    problem:
+      'Los clientes no lograban entender sus datos de uso — los informes tardaban horas en generarse y llegaban desactualizados. El pipeline existente colapsaba con 5k eventos/segundo.',
+    solution:
+      'Rediseñé el pipeline de datos con Apache Kafka para ingesta, WebSocket para entrega en vivo y vistas materializadas en PostgreSQL para consultas históricas. El sistema ahora procesa 50k+ eventos/segundo con tiempos de consulta de menos de un segundo.',
+    decisions: [
+      { label: 'Ingesta en streaming', detail: 'Clúster Kafka maneja 50k+ eventos/segundo con particionamiento automático' },
+      { label: 'Paneles en vivo', detail: 'Push WebSocket a 10fps, latencia p99 de 3ms del broker al navegador' },
+      { label: 'Pipeline de alertas', detail: 'Reglas configurables evaluadas en flujo, notificación push en menos de 2s' },
+    ],
+    tech: ['Node.js', 'React', 'Kafka', 'WebSocket', 'PostgreSQL', 'Docker', 'Nginx'],
   },
   {
-    title: 'API Gateway & Auth Service',
-    problem: 'Microservices had inconsistent auth, rate limiting, and observability — each team solved the same problems differently.',
-    solution: 'Designed a unified gateway handling authentication, rate-limiting, logging, and routing for 12+ backend services.',
+    title: 'API Gateway y Servicio de Autenticación',
+    layout: 'compact',
+    problem:
+      'Los microservicios tenían autenticación, límites de tasa y observabilidad inconsistentes — cada equipo resolvía los mismos problemas de forma distinta, creando brechas de seguridad y sobrecarga operativa.',
+    solution:
+      'Diseñé un gateway unificado que maneja autenticación, limitación de tasa, registro de actividad y enrutamiento para más de 12 servicios backend. Cada equipo redujo ~40% del código repetitivo.',
+    decision: {
+      question: '¿Por qué no un API gateway de código abierto?',
+      answer:
+        'Los servicios existentes usaban protocolos mixtos (gRPC, REST, WebSocket) y necesitaban middleware de autenticación personalizado para integración SAML heredada. Construimos un gateway ligero en Node.js que envuelve cadenas de middleware Express por ruta — más simple que Kong o Ambassador para nuestra topología, y cada equipo mantuvo su cadencia de despliegue.',
+    },
     tech: ['Node.js', 'TypeScript', 'Redis', 'Docker', 'PostgreSQL', 'JWT', 'Prometheus'],
-    gradient: 'peach',
   },
 ]
+
+function ArchitectureDiagram({ left, center, right }: { left: string[]; center: string; right: string[] }) {
+  return (
+    <div className="arch-diagram" aria-label={`Arquitectura del sistema: ${left.join(', ')} → ${center} → ${right.join(', ')}`}>
+      <div className="arch-diagram-group">
+        {left.map((tag) => (
+          <span key={tag} className="arch-tag">{tag}</span>
+        ))}
+      </div>
+      <svg className="arch-connector" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+      <div className="arch-center-node">{center}</div>
+      <svg className="arch-connector" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+      <div className="arch-diagram-group">
+        {right.map((tag) => (
+          <span key={tag} className="arch-tag">{tag}</span>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 export default function Projects() {
   const { ref, inView } = useInView()
 
   return (
     <section className="projects" id="projects" ref={ref}>
-      <h2 className={`section-label ${inView ? 'animate-in--fade' : 'animate-in'}`}>Featured Projects</h2>
-      <div className="projects-grid">
+      <h2 className={`section-label ${inView ? 'animate-in--fade' : 'animate-in'}`}>Proyectos Destacados</h2>
+      <div className="projects-list">
         {projects.map((p, i) => (
-          <article key={p.title} className={`project-card ${inView ? `animate-in--visible animate-in--delay-${i + 1}` : 'animate-in'}`}>
-            <div className="project-card-text">
-              <h3>{p.title}</h3>
-              <p><strong>Problem:</strong> {p.problem}</p>
-              <p><strong>Solution:</strong> {p.solution}</p>
-              <div className="project-card-tech">
-                {p.tech.map((t) => (
-                  <span key={t} className="project-card-tech-item">{t}</span>
-                ))}
-              </div>
-            </div>
-            <div className={`project-card-illustration${p.gradient === 'mint' ? ' project-card-illustration--mint' : ''}`} aria-hidden="true" />
+          <article
+            key={p.title}
+            className={`project-card project-card--${p.layout} ${inView ? `animate-in--visible animate-in--delay-${i + 1}` : 'animate-in'}`}
+          >
+            {(() => {
+              if (p.layout === 'architecture') {
+                const arch = p as ArchitectureProject
+                return (
+                  <>
+                    <div className="project-card-text">
+                      <h3>{arch.title}</h3>
+                      <p><strong>Problema:</strong> {arch.problem}</p>
+                      <p><strong>Solución:</strong> {arch.solution}</p>
+                      <ul className="project-results">
+                        {arch.results.map((r) => (
+                          <li key={r}>{r}</li>
+                        ))}
+                      </ul>
+                      <div className="project-card-tech">
+                        {arch.tech.map((t) => (
+                          <span key={t} className="project-card-tech-item">{t}</span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="project-card-visual">
+                      <ArchitectureDiagram left={arch.architecture.left} center={arch.architecture.center} right={arch.architecture.right} />
+                    </div>
+                  </>
+                )
+              }
+
+              if (p.layout === 'fullwidth') {
+                const fw = p as FullwidthProject
+                return (
+                  <>
+                    <div className="project-card-text">
+                      <h3>{fw.title}</h3>
+                      <p><strong>Problema:</strong> {fw.problem}</p>
+                      <p><strong>Solución:</strong> {fw.solution}</p>
+                    </div>
+                    <div className="project-decisions">
+                      {fw.decisions.map((d) => (
+                        <div key={d.label} className="project-decision">
+                          <span className="project-decision-label">{d.label}</span>
+                          <span className="project-decision-detail">{d.detail}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="project-card-tech">
+                      {fw.tech.map((t) => (
+                        <span key={t} className="project-card-tech-item">{t}</span>
+                      ))}
+                    </div>
+                  </>
+                )
+              }
+
+              const comp = p as CompactProject
+              return (
+                <>
+                  <div className="project-card-tech">
+                    {comp.tech.map((t) => (
+                      <span key={t} className="project-card-tech-item">{t}</span>
+                    ))}
+                  </div>
+                  <div className="project-card-text">
+                    <h3>{comp.title}</h3>
+                    <p><strong>Problema:</strong> {comp.problem}</p>
+                    <p><strong>Solución:</strong> {comp.solution}</p>
+                  </div>
+                  <aside className="project-decision-callout">
+                    <strong className="project-decision-callout-label">{comp.decision.question}</strong>
+                    <p>{comp.decision.answer}</p>
+                  </aside>
+                </>
+              )
+            })()}
           </article>
         ))}
       </div>

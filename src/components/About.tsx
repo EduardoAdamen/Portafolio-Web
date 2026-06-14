@@ -2,11 +2,11 @@ import { useInView } from '../hooks/useInView'
 import './About.css'
 
 const values = [
-  'Clean Architecture',
-  'Type Safety',
-  'Testable Code',
-  'Performance',
-  'User Experience',
+  'Arquitectura Limpia',
+  'Seguridad de Tipos',
+  'Código Comprobable',
+  'Rendimiento',
+  'Experiencia de Usuario',
   'CI/CD',
 ]
 
@@ -17,22 +17,23 @@ export default function About() {
     <section className="about" id="about" ref={ref}>
       <div className={`about-content ${inView ? 'animate-in--visible' : 'animate-in'}`}>
         <div className="about-text">
-          <h2 className="section-label">About</h2>
+          <h2 className="section-label">Sobre mí</h2>
           <p>
-            I am a full stack developer with experience building production-grade
-            applications across the entire web stack. From database design and
-            API architecture to responsive frontends and cloud deployment, I
-            focus on creating software that is maintainable, performant, and
-            user-friendly.
+            Soy un desarrollador full stack con experiencia creando aplicaciones
+            de nivel productivo en todo el stack web. Desde diseño de bases de
+            datos y arquitectura de APIs hasta frontends responsivos y despliegue
+            en la nube, me enfoco en construir software mantenible, eficiente y
+            fácil de usar.
           </p>
           <p>
-            My approach combines strong engineering fundamentals with practical
-            product thinking. I believe the best systems are built when technical
-            decisions are guided by real user needs and business goals.
+            Mi enfoque combina fundamentos sólidos de ingeniería con pensamiento
+            práctico de producto. Creo que los mejores sistemas se construyen
+            cuando las decisiones técnicas están guiadas por necesidades reales
+            de los usuarios y objetivos de negocio.
           </p>
         </div>
         <div className="about-card">
-          <h3 className="about-card-heading">What drives me</h3>
+          <h3 className="about-card-heading">Lo que me impulsa</h3>
           <div className="about-card-tags">
             {values.map((v) => (
               <span key={v} className="about-card-tag">{v}</span>

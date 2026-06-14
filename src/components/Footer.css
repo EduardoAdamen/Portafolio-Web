@@ -22,7 +22,7 @@
 .footer-links {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--spacing-12);
 }
 
 .footer-link {

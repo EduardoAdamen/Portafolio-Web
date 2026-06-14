@@ -11,7 +11,7 @@ const groups = [
     items: ['Node.js', 'Express', 'NestJS', 'Python', 'REST APIs', 'GraphQL'],
   },
   {
-    name: 'Databases',
+    name: 'Bases de Datos',
     items: ['PostgreSQL', 'MongoDB', 'Redis', 'Prisma', 'Drizzle', 'SQL'],
   },
   {
@@ -23,7 +23,7 @@ const groups = [
     items: ['React Native', 'Expo', 'iOS', 'Android'],
   },
   {
-    name: 'Tools & Workflow',
+    name: 'Herramientas y Flujo',
     items: ['Git', 'VS Code', 'Figma', 'Notion', 'Linear', 'Jira'],
   },
 ]
@@ -33,7 +33,7 @@ export default function Skills() {
 
   return (
     <section className="skills" id="skills" ref={ref}>
-      <h2 className={`section-label ${inView ? 'animate-in--fade' : 'animate-in'}`}>Technical Skills</h2>
+      <h2 className={`section-label ${inView ? 'animate-in--fade' : 'animate-in'}`}>Habilidades Técnicas</h2>
       <div className={`skills-grid ${inView ? 'animate-in--visible' : 'animate-in'}`}>
         {groups.map((group) => (
           <div key={group.name}>
