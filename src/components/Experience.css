@@ -35,7 +35,8 @@
 .experience-item-date {
   font-size: var(--text-caption);
   letter-spacing: var(--tracking-caption);
-  color: var(--color-warm-stone);
+  color: var(--color-graphite);
+  font-weight: var(--font-weight-medium);
 }
 
 .experience-item-company {

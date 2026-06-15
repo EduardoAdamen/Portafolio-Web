@@ -20,8 +20,10 @@
 }
 
 .about-manifesto {
-  padding: var(--spacing-24) 0 0 var(--spacing-32);
-  border-left: 1.5px solid var(--color-ink-black);
+  padding: var(--spacing-32);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-cards);
+  background: var(--surface-warm-card);
 }
 
 .about-manifesto-label {
@@ -68,7 +70,7 @@
   }
 
   .about-manifesto {
-    padding: var(--spacing-20) 0 0 var(--spacing-24);
+    padding: var(--spacing-24);
   }
 
   .about-manifesto blockquote p {

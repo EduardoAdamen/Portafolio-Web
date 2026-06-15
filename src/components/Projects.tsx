@@ -98,13 +98,22 @@ export default function Projects() {
                       <li key={r}>{r}</li>
                     ))}
                   </ul>
-                </div>
-                <div className="project-card-visual">
                   <div className="project-card-tech">
                     {arch.tech.map((t) => (
                       <span key={t} className="project-card-tech-item">{t}</span>
                     ))}
                   </div>
+                </div>
+                <div className="project-card-decor" aria-hidden="true">
+                  <div className="gradient-blob gradient-blob--peach" />
+                  <div className="gradient-blob gradient-blob--lavender" />
+                  <div className="gradient-blob gradient-blob--mint" />
+                  <div className="gradient-blob gradient-blob--amber" />
+                  <div className="gradient-shape gradient-shape--square" />
+                  <span className="gradient-dot" style={{ top: '22%', left: '35%', background: 'rgba(255,148,115,0.55)' }} />
+                  <span className="gradient-dot" style={{ top: '60%', left: '70%', background: 'rgba(160,181,235,0.55)' }} />
+                  <span className="gradient-dot" style={{ top: '80%', left: '22%', background: 'rgba(226,193,97,0.55)' }} />
+                  <span className="gradient-dot" style={{ top: '42%', left: '55%', background: 'rgba(255,148,115,0.45)' }} />
                 </div>
               </article>
             )
@@ -114,6 +123,15 @@ export default function Projects() {
             const fw = p as FullwidthProject
             return (
               <article key={fw.title} className={`project-card project-card--fullwidth ${animClass}`}>
+                <div className="project-card-decor" aria-hidden="true">
+                  <div className="gradient-blob gradient-blob--peach" />
+                  <div className="gradient-blob gradient-blob--lavender" />
+                  <div className="gradient-blob gradient-blob--mint" />
+                  <div className="gradient-blob gradient-blob--amber" />
+                  <div className="gradient-shape gradient-shape--square" />
+                  <span className="gradient-dot" style={{ top: '30%', left: '40%', background: 'rgba(160,181,235,0.55)' }} />
+                  <span className="gradient-dot" style={{ top: '65%', left: '20%', background: 'rgba(255,148,115,0.55)' }} />
+                </div>
                 <div className="project-card-text">
                   <h3>{fw.title}</h3>
                   <p><strong>Problema:</strong> {fw.problem}</p>
@@ -139,6 +157,12 @@ export default function Projects() {
           const comp = p as CompactProject
           return (
             <article key={comp.title} className={`project-card project-card--compact ${animClass}`}>
+              <div className="project-card-decor" aria-hidden="true">
+                <div className="gradient-blob gradient-blob--mint" />
+                <div className="gradient-blob gradient-blob--amber" />
+                <span className="gradient-dot" style={{ top: '30%', left: '40%', background: 'rgba(160,181,235,0.5)' }} />
+                <span className="gradient-dot" style={{ top: '65%', left: '20%', background: 'rgba(255,148,115,0.5)' }} />
+              </div>
               <div className="project-card-tech">
                 {comp.tech.map((t) => (
                   <span key={t} className="project-card-tech-item">{t}</span>

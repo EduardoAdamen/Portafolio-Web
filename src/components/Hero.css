@@ -35,8 +35,9 @@
 .hero-greeting {
   font-family: var(--font-abc-diatype-mono);
   font-size: var(--text-body-sm);
+  font-weight: var(--font-weight-medium);
   letter-spacing: var(--tracking-body-sm);
-  color: var(--color-warm-stone);
+  color: var(--color-charcoal);
   margin-bottom: var(--spacing-4);
 }
 
@@ -82,12 +83,14 @@
   border: 1px solid var(--color-ink-black);
   border-radius: 50%;
   color: var(--color-graphite);
-  transition: color 0.15s, background 0.15s;
+  transition: all 0.15s;
 }
 
 .hero-social-link:hover {
   color: var(--color-ink-black);
-  background: rgba(0, 0, 0, 0.03);
+  background: var(--surface-parchment-canvas);
+  border-color: var(--color-ink-black);
+  transform: translateY(-2px);
 }
 
 .hero-social-link svg {

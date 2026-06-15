@@ -1,7 +1,7 @@
 .nav {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: var(--z-sticky);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -38,7 +38,7 @@
   bottom: -22px;
   left: 0;
   right: 0;
-  height: 1.5px;
+  height: 2px;
   background: var(--color-ink-black);
 }
 

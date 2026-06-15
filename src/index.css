@@ -5,7 +5,7 @@
   --color-charcoal: #242424;
   --color-graphite: #4e4d4d;
   --color-slate-shadow: #3d3d3d;
-  --color-warm-stone: #797776;
+  --color-warm-stone: #666463;
   --color-warm-beige: #ece0d4;
   --color-peach-to-periwinkle-wash: #ff9473;
   --gradient-peach-to-periwinkle-wash: linear-gradient(rgba(255, 148, 115, 0.8) 7%, rgba(160, 181, 235, 0.8) 83.82%);
@@ -76,10 +76,17 @@
   /* Shadows */
   --shadow-md: rgba(0, 0, 0, 0.1) 0px 0px 10px 0px;
 
+  /* Z-Index Scale */
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-modal-backdrop: 30;
+  --z-modal: 40;
+  --z-toast: 50;
+  --z-tooltip: 60;
+
   /* Surfaces */
   --surface-parchment-canvas: #f6f3f1;
   --surface-warm-card: #ece0d4;
-  --gradient-card-surface: linear-gradient(145deg, #ece0d4 0%, #f4ece4 100%);
   --surface-charcoal-surface: #242424;
 }
 
@@ -112,6 +119,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+::selection {
+  background: var(--color-charcoal);
+  color: var(--surface-parchment-canvas);
+}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-untitled-serif);
@@ -175,26 +187,22 @@ button {
 }
 
 .animate-in {
-  opacity: 0;
+  /* opacity: 0; Removed to prevent blank content if observer fails */
 }
 
 .animate-in--visible {
-  opacity: 0;
   animation: fade-in-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-in--fade {
-  opacity: 0;
   animation: fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-in--left {
-  opacity: 0;
   animation: fade-in-left 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-in--right {
-  opacity: 0;
   animation: fade-in-right 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
