@@ -8,6 +8,7 @@
   margin: 0 auto;
 }
 
+
 /* Photo placeholder */
 
 .hero-photo {
@@ -59,7 +60,7 @@
   font-size: var(--text-body);
   letter-spacing: var(--tracking-body);
   color: var(--color-graphite);
-  max-width: 560px;
+  max-width: 70ch;
   line-height: 1.6;
   margin-bottom: var(--spacing-24);
 }
@@ -116,8 +117,6 @@
     width: 40px;
     height: 40px;
   }
-
-
 
   .hero-name {
     font-size: var(--text-heading);

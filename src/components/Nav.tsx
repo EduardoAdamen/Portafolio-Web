@@ -3,7 +3,7 @@ import './Nav.css'
 
 const links = [
   { label: 'Sobre mí', href: '#about' },
-  { label: 'Habilidades', href: '#skills' },
+  { label: 'Skills', href: '#skills' },
   { label: 'Proyectos', href: '#projects' },
   { label: 'Experiencia', href: '#experience' },
   { label: 'Contacto', href: '#contact' },
@@ -44,6 +44,10 @@ export default function Nav() {
   useEffect(() => {
     if (!menuOpen) return
 
+    function handleKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') closeMenu()
+    }
+
     function handleClick(e: MouseEvent) {
       if (
         menuRef.current &&
@@ -55,13 +59,16 @@ export default function Nav() {
       }
     }
 
+    document.addEventListener('keydown', handleKey)
     document.addEventListener('mousedown', handleClick)
-    return () => document.removeEventListener('mousedown', handleClick)
+    return () => {
+      document.removeEventListener('keydown', handleKey)
+      document.removeEventListener('mousedown', handleClick)
+    }
   }, [menuOpen, closeMenu])
 
   return (
     <nav className="nav" role="navigation" aria-label="Navegación principal">
-      <a href="#hero" className="nav-logo" onClick={closeMenu}>Eduardo Adame</a>
 
       <ul className={`nav-links${menuOpen ? ' nav-links--open' : ''}`} ref={menuRef}>
         {links.map((link) => (

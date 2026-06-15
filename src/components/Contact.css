@@ -5,11 +5,12 @@
   text-align: center;
 }
 
+
 .contact-intro {
   font-size: var(--text-subheading);
   letter-spacing: var(--tracking-subheading);
   color: var(--color-graphite);
-  max-width: 480px;
+  max-width: 65ch;
   margin: var(--spacing-24) auto var(--spacing-40);
 }
 
@@ -39,4 +40,6 @@
   .contact {
     padding: var(--spacing-40) var(--spacing-16);
   }
+
+
 }

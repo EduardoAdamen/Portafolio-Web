@@ -3,7 +3,7 @@
 
 **Theme:** light
 
-Monad renders as a quiet editorial document on warm parchment: cream canvas, charcoal ink, and a single near-gray lavender card surface carry the entire UI. The signature move is type — a humanist serif at 400 weight for headlines paired with a monospaced font for nearly all UI text creates a technical-journal feel that is rare in B2B SaaS. Color is almost completely absent from the interface; the peach, lavender, and mint tones that exist are confined to the data-flow diagram in the hero, where they behave as soft atmospheric washes rather than brand accents. Components are flat and confident: 100px pill buttons, 40px-radius cards, hairline borders in near-black, and a single soft ambient shadow — nothing is heavy, nothing is glossy. The overall rhythm is generous breathing room, centered text stacks, and horizontal flow lines that suggest movement without animation.
+Monad renders as a quiet editorial document on warm parchment: cream canvas, charcoal ink, and a single warm beige card surface carry the entire UI. The signature move is type — a humanist serif at 400 weight for headlines paired with a monospaced font for nearly all UI text creates a technical-journal feel that is rare in B2B SaaS. Color is almost completely absent from the interface; the peach, lavender, and mint tones that exist are confined to the data-flow diagram in the hero, where they behave as soft atmospheric washes rather than brand accents. Components are flat and confident: 100px pill buttons, 40px-radius cards, hairline borders in near-black, and a single soft ambient shadow — nothing is heavy, nothing is glossy. The overall rhythm is generous breathing room, centered text stacks, and horizontal flow lines that suggest movement without animation.
 
 ## Tokens — Colors
 
@@ -15,7 +15,7 @@ Monad renders as a quiet editorial document on warm parchment: cream canvas, cha
 | Graphite | `#4e4d4d` | `--color-graphite` | Body and heading text at lower contrast, secondary card borders, muted UI elements |
 | Slate Shadow | `#3d3d3d` | `--color-slate-shadow` | Tertiary borders and decorative strokes where pure black would feel too heavy |
 | Warm Stone | `#797776` | `--color-warm-stone` | Muted helper text, link underlines, and low-emphasis labels |
-| Lavender Mist | `#cfdaf5` | `--color-lavender-mist` | Card surface tint — the only non-grayscale surface color, used as a gentle wash to separate elevated content from the cream canvas |
+| Warm Beige | `#ece0d4` | `--color-warm-beige` | Card surface tint — a subtle warm café con leche tone that separates elevated content from the cream canvas while keeping the palette firmly on the warm side |
 | Peach to Periwinkle Wash | `linear-gradient(rgba(255, 148, 115, 0.8) 7%, rgba(160, 181, 235, 0.8) 83.82%)` | `--color-peach-to-periwinkle-wash` | Decorative gradient endstop in the data-flow diagram — soft atmospheric color, never used as a UI accent |
 | Mint to Periwinkle Wash | `linear-gradient(rgb(160, 181, 235), rgb(167, 252, 205))` | `--color-mint-to-periwinkle-wash` | Decorative gradient in the data-flow diagram aura — appears as a soft green glow around the central processing node |
 
@@ -130,7 +130,7 @@ White or Parchment background, 1px Ink Black border, 100px border-radius, left-a
 ### Feature Card
 **Role:** Content card in the 'How Monad Works' section
 
-Lavender Mist (#cfdaf5) background, no border, 40px border-radius, 40px padding, soft ambient shadow (rgba(0,0,0,0.1) 0 0 10px). Contains a small icon, serif heading, and mono body text. The right side often features a decorative gradient illustration (peach/lavender/mint).
+Warm Beige (#ece0d4) background, no border, 40px border-radius, 40px padding, soft ambient shadow (rgba(0,0,0,0.1) 0 0 10px). Contains a small icon, serif heading, and mono body text. The right side often features a decorative gradient illustration (peach/lavender/mint).
 
 ### FAQ Accordion Item
 **Role:** Expandable question row in the FAQ section
@@ -182,7 +182,7 @@ Section headings in ABC Diatype Mono 12px weight 500 with positive tracking (0.0
 | Level | Name | Value | Purpose |
 |-------|------|-------|---------|
 | 0 | Parchment Canvas | `#f6f3f1` | Page background — warm cream off-white that defines the editorial paper feel |
-| 1 | Lavender Card | `#cfdaf5` | Elevated card surface — subtle near-gray lavender tint separates content blocks from the canvas |
+| 1 | Warm Beige Card | `#ece0d4` | Elevated card surface — subtle warm café con leche beige separates content blocks from the canvas, keeping the palette warm throughout |
 | 2 | Charcoal Surface | `#242424` | Dark elevated surface for CTAs and badges — the only non-warm surface in the system |
 
 ## Elevation
@@ -198,7 +198,7 @@ Monad's visual language is almost entirely diagrammatic and typographic — no p
 ## Quick Color Reference
 - text: #000000 (Ink Black)
 - background: #f6f3f1 (Parchment Cream)
-- card surface: #cfdaf5 (Lavender Mist)
+- card surface: #ece0d4 (Warm Beige)
 - border / hairline: #000000 at 1px
 - muted text: #4e4d4d (Graphite)
 - primary action: no distinct CTA color
@@ -207,7 +207,7 @@ Monad's visual language is almost entirely diagrammatic and typographic — no p
 
 No distinct primary action color was observed; use the extracted neutral button treatments instead of inventing a filled CTA color.
 
-2. **Feature Card**: Lavender Mist (#cfdaf5) background, 40px border-radius, 40px padding, shadow rgba(0,0,0,0.1) 0 0 10px. Left column: small icon, then heading in Untitled Serif 24px weight 400, then body in ABC Diatype Mono 16px color #4e4d4d. Right column: decorative gradient panel (peach to lavender, 60-80% opacity) contained within the card radius.
+2. **Feature Card**: Warm Beige (#ece0d4) background, 40px border-radius, 40px padding, shadow rgba(0,0,0,0.1) 0 0 10px. Left column: small icon, then heading in Untitled Serif 24px weight 400, then body in ABC Diatype Mono 16px color #4e4d4d. Right column: decorative gradient panel (peach to lavender, 60-80% opacity) contained within the card radius.
 
 3. **Pill Source Tag**: White or transparent background, 1px #000000 border, 100px border-radius, 8px/16px padding. Left-aligned 14px icon in #000000, then label in ABC Diatype Mono 12px weight 400 color #000000, 8px gap between icon and text.
 
@@ -236,7 +236,7 @@ No distinct primary action color was observed; use the extracted neutral button 
   --color-graphite: #4e4d4d;
   --color-slate-shadow: #3d3d3d;
   --color-warm-stone: #797776;
-  --color-lavender-mist: #cfdaf5;
+  --color-warm-beige: #ece0d4;
   --color-peach-to-periwinkle-wash: #ff9473;
   --gradient-peach-to-periwinkle-wash: linear-gradient(rgba(255, 148, 115, 0.8) 7%, rgba(160, 181, 235, 0.8) 83.82%);
   --color-mint-to-periwinkle-wash: #a7fccd;
@@ -311,7 +311,7 @@ No distinct primary action color was observed; use the extracted neutral button 
 
   /* Surfaces */
   --surface-parchment-canvas: #f6f3f1;
-  --surface-lavender-card: #cfdaf5;
+  --surface-warm-card: #ece0d4;
   --surface-charcoal-surface: #242424;
 }
 ```
@@ -327,7 +327,7 @@ No distinct primary action color was observed; use the extracted neutral button 
   --color-graphite: #4e4d4d;
   --color-slate-shadow: #3d3d3d;
   --color-warm-stone: #797776;
-  --color-lavender-mist: #cfdaf5;
+  --color-warm-beige: #ece0d4;
   --color-peach-to-periwinkle-wash: #ff9473;
   --color-mint-to-periwinkle-wash: #a7fccd;
 

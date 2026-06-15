@@ -4,6 +4,7 @@
   margin: 0 auto;
 }
 
+
 .projects-list {
   display: flex;
   flex-direction: column;
@@ -14,7 +15,7 @@
 /* --- Base card --- */
 
 .project-card {
-  background: var(--surface-lavender-card);
+  background: var(--gradient-card-surface, var(--surface-warm-card));
   border-radius: var(--radius-cards);
   padding: var(--card-padding);
   box-shadow: var(--shadow-md);
@@ -54,6 +55,7 @@
   padding: 4px 12px;
   border: 1px solid var(--color-ink-black);
   border-radius: var(--radius-tags);
+  font-family: var(--font-abc-diatype-mono);
   font-size: 11px;
   letter-spacing: 0;
 }
@@ -136,47 +138,6 @@
 
 .project-card--compact .project-card-tech {
   margin-top: 0;
-}
-
-.project-card-visual {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  gap: var(--spacing-16);
-}
-
-.project-image-placeholder {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  border: 1.5px dashed var(--color-slate-shadow);
-  border-radius: var(--radius-inputs);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--spacing-8);
-  opacity: 0.55;
-  transition: opacity 0.2s;
-}
-
-.project-image-placeholder:hover {
-  opacity: 0.8;
-}
-
-.project-image-icon {
-  width: 32px;
-  height: 32px;
-  color: var(--color-slate-shadow);
-}
-
-.project-image-label {
-  font-family: var(--font-abc-diatype-mono);
-  font-size: var(--text-caption);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--color-slate-shadow);
 }
 
 .project-decision-callout {

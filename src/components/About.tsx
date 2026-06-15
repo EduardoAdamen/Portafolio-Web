@@ -1,15 +1,6 @@
 import { useInView } from '../hooks/useInView'
 import './About.css'
 
-const values = [
-  'Arquitectura Limpia',
-  'Seguridad de Tipos',
-  'Código Comprobable',
-  'Rendimiento',
-  'Experiencia de Usuario',
-  'CI/CD',
-]
-
 export default function About() {
   const { ref, inView } = useInView()
 
@@ -17,7 +8,7 @@ export default function About() {
     <section className="about" id="about" ref={ref}>
       <div className={`about-content ${inView ? 'animate-in--visible' : 'animate-in'}`}>
         <div className="about-text">
-          <h2 className="section-label">Sobre mí</h2>
+          <h2 className="section-heading">Sobre mí</h2>
           <p>
             Soy un desarrollador full stack con experiencia creando aplicaciones
             de nivel productivo en todo el stack web. Desde diseño de bases de
@@ -32,13 +23,15 @@ export default function About() {
             de los usuarios y objetivos de negocio.
           </p>
         </div>
-        <div className="about-card">
-          <h3 className="about-card-heading">Lo que me impulsa</h3>
-          <div className="about-card-tags">
-            {values.map((v) => (
-              <span key={v} className="about-card-tag">{v}</span>
-            ))}
-          </div>
+        <div className="about-manifesto">
+          <span className="about-manifesto-label">Manifiesto</span>
+          <blockquote>
+            <p>
+              El mejor código es el que se puede cambiar sin miedo,
+              probar sin configuración, y desplegar sin intervención manual.
+            </p>
+          </blockquote>
+          <cite className="about-manifesto-cite">— Eduardo Adame</cite>
         </div>
       </div>
     </section>

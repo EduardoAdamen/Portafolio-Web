@@ -75,25 +75,12 @@ const projects: Project[] = [
   },
 ]
 
-function ProjectImagePlaceholder() {
-  return (
-    <div className="project-image-placeholder" aria-hidden="true">
-      <svg className="project-image-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" strokeWidth="1.3" />
-        <circle cx="9" cy="9.5" r="2" stroke="currentColor" strokeWidth="1.3" />
-        <path d="M3 16.5l5-3 4 2 4-3 5 4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-      <span className="project-image-label">Imagen del proyecto</span>
-    </div>
-  )
-}
-
 export default function Projects() {
   const { ref, inView } = useInView()
 
   return (
     <section className="projects" id="projects" ref={ref}>
-      <h2 className={`section-label ${inView ? 'animate-in--fade' : 'animate-in'}`}>Proyectos Destacados</h2>
+      <h2 className={`section-heading ${inView ? 'animate-in--fade' : 'animate-in'}`}>Proyectos Destacados</h2>
       <div className="projects-list">
         {projects.map((p, i) => {
           const animClass = inView ? `animate-in--visible animate-in--delay-${i + 1}` : 'animate-in'
@@ -113,7 +100,6 @@ export default function Projects() {
                   </ul>
                 </div>
                 <div className="project-card-visual">
-                  <ProjectImagePlaceholder />
                   <div className="project-card-tech">
                     {arch.tech.map((t) => (
                       <span key={t} className="project-card-tech-item">{t}</span>
@@ -128,7 +114,6 @@ export default function Projects() {
             const fw = p as FullwidthProject
             return (
               <article key={fw.title} className={`project-card project-card--fullwidth ${animClass}`}>
-                <ProjectImagePlaceholder />
                 <div className="project-card-text">
                   <h3>{fw.title}</h3>
                   <p><strong>Problema:</strong> {fw.problem}</p>
@@ -154,7 +139,6 @@ export default function Projects() {
           const comp = p as CompactProject
           return (
             <article key={comp.title} className={`project-card project-card--compact ${animClass}`}>
-              <ProjectImagePlaceholder />
               <div className="project-card-tech">
                 {comp.tech.map((t) => (
                   <span key={t} className="project-card-tech-item">{t}</span>

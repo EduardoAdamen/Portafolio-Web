@@ -5,7 +5,7 @@ const groups = [
     heading: 'Navegación',
     links: [
       { label: 'Sobre mí', href: '#about' },
-      { label: 'Habilidades', href: '#skills' },
+      { label: 'Skills', href: '#skills' },
       { label: 'Proyectos', href: '#projects' },
       { label: 'Experiencia', href: '#experience' },
       { label: 'Contacto', href: '#contact' },
@@ -22,7 +22,7 @@ const groups = [
     links: [
       { label: 'Correo', href: 'mailto:hello@cesar.dev' },
       { label: 'GitHub', href: 'https://github.com/eduardo-adame' },
-      { label: 'LinkedIn', href: 'https://github.com/EduardoAdamen' },
+      { label: 'LinkedIn', href: '#' },
     ],
   },
   {

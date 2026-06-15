@@ -19,32 +19,43 @@
   color: var(--color-graphite);
 }
 
-.about-card {
-  background: var(--surface-lavender-card);
-  border-radius: var(--radius-cards);
-  padding: var(--card-padding);
-  box-shadow: var(--shadow-md);
+.about-manifesto {
+  padding: var(--spacing-24) 0 0 var(--spacing-32);
+  border-left: 1.5px solid var(--color-ink-black);
 }
 
-.about-card-heading {
+.about-manifesto-label {
+  display: block;
+  font-family: var(--font-abc-diatype-mono);
+  font-size: var(--text-caption);
+  letter-spacing: normal;
+  color: var(--color-warm-stone);
+  margin-bottom: var(--spacing-12);
+}
+
+.about-manifesto blockquote {
+  margin: 0;
+}
+
+.about-manifesto blockquote p {
+  font-family: var(--font-untitled-serif);
+  font-weight: var(--font-weight-regular);
   font-size: var(--text-heading-sm);
   letter-spacing: var(--tracking-heading-sm);
-  margin-bottom: var(--spacing-16);
+  line-height: 1.35;
+  color: var(--color-ink-black);
+  max-width: 30ch;
+  margin-bottom: 0;
 }
 
-.about-card-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-8);
-}
-
-.about-card-tag {
-  padding: 6px 16px;
-  border: 1px solid var(--color-ink-black);
-  border-radius: var(--radius-tags);
-  font-size: 12px;
-  letter-spacing: var(--tracking-caption);
-  background: var(--surface-parchment-canvas);
+.about-manifesto-cite {
+  display: block;
+  font-family: var(--font-abc-diatype-mono);
+  font-size: var(--text-caption);
+  letter-spacing: normal;
+  font-style: normal;
+  color: var(--color-graphite);
+  margin-top: var(--spacing-16);
 }
 
 @media (max-width: 768px) {
@@ -54,5 +65,13 @@
 
   .about-content {
     grid-template-columns: 1fr;
+  }
+
+  .about-manifesto {
+    padding: var(--spacing-20) 0 0 var(--spacing-24);
+  }
+
+  .about-manifesto blockquote p {
+    font-size: var(--text-subheading);
   }
 }

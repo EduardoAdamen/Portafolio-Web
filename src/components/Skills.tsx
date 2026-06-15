@@ -1,30 +1,26 @@
 import { useInView } from '../hooks/useInView'
 import './Skills.css'
 
-const groups = [
+const domains = [
   {
     name: 'Frontend',
-    items: ['React', 'TypeScript', 'HTML/CSS', 'Next.js', 'Tailwind CSS', 'Framer Motion'],
+    items: ['React', 'TypeScript', 'HTML/CSS', 'Next.js', 'Tailwind CSS', 'JavaScript'],
   },
   {
     name: 'Backend',
-    items: ['Node.js', 'Express', 'NestJS', 'Python', 'REST APIs', 'GraphQL'],
+    items: ['Express', 'Python', 'REST APIs', 'Spring Boot', 'Laravel', 'Java'],
   },
   {
     name: 'Bases de Datos',
-    items: ['PostgreSQL', 'MongoDB', 'Redis', 'Prisma', 'Drizzle', 'SQL'],
+    items: ['PostgreSQL', 'MongoDB', 'SQL', 'SQLITE'],
   },
   {
     name: 'Cloud & DevOps',
-    items: ['AWS', 'Docker', 'CI/CD', 'Linux', 'Nginx', 'Terraform'],
+    items: ['AWS', 'Docker', 'CI/CD', 'Linux', 'Nginx', 'Google Cloud'],
   },
   {
-    name: 'Mobile',
-    items: ['React Native', 'Expo', 'iOS', 'Android'],
-  },
-  {
-    name: 'Herramientas y Flujo',
-    items: ['Git', 'VS Code', 'Figma', 'Notion', 'Linear', 'Jira'],
+    name: 'Herramientas',
+    items: ['Git', 'VS Code', 'Figma'],
   },
 ]
 
@@ -33,16 +29,21 @@ export default function Skills() {
 
   return (
     <section className="skills" id="skills" ref={ref}>
-      <h2 className={`section-heading ${inView ? 'animate-in--fade' : 'animate-in'}`}>Habilidades Técnicas</h2>
-      <div className={`skills-grid ${inView ? 'animate-in--visible' : 'animate-in'}`}>
-        {groups.map((group) => (
-          <div key={group.name}>
-            <h3 className="skills-group-heading">{group.name}</h3>
-            <ul className="skills-list">
-              {group.items.map((item) => (
-                <li key={item} className="skills-item">{item}</li>
+      <h2 className={`section-heading ${inView ? 'animate-in--fade' : 'animate-in'}`}>Skills</h2>
+      <div className="skills-grid">
+        {domains.map((domain, i) => (
+          <div
+            key={domain.name}
+            className={`domain${inView ? ' domain--visible' : ''}`}
+            style={{ '--domain-index': i } as React.CSSProperties}
+          >
+            <h3 className="domain-label">{domain.name}</h3>
+            <div className="domain-underline" />
+            <div className="domain-pills">
+              {domain.items.map((item) => (
+                <span key={item} className="domain-pill">{item}</span>
               ))}
-            </ul>
+            </div>
           </div>
         ))}
       </div>

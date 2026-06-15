@@ -7,7 +7,7 @@ const items = [
     company: 'Tech Company — Remoto',
     date: '2023 — Actualidad',
     description:
-      'Lideré el desarrollo de aplicaciones web orientadas al cliente con más de 100 mil usuarios. Arquitectonicé la migración a microservicios, reduje la latencia de APIs en un 40% y mentoricé a desarrolladores junior.',
+      'Lideré el desarrollo de aplicaciones web orientadas al cliente con más de 100 mil usuarios. Diseñé la arquitectura de la migración a microservicios, reduje la latencia de APIs en un 40% y mentoricé a desarrolladores junior.',
   },
   {
     title: 'Full Stack Developer',
