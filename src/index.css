@@ -83,6 +83,10 @@
   /* Surfaces */
   --surface-parchment-canvas: #0a0a0a;
   --surface-charcoal-surface: #141414;
+
+  /* Component-level tokens */
+  --color-card-border: rgba(255, 255, 255, 0.2);
+  --color-card-bg: #141414;
 }
 
 [data-theme='light'] {
@@ -99,6 +103,10 @@
 
   --surface-parchment-canvas: #f6f3f1;
   --surface-charcoal-surface: #242424;
+
+  /* Component-level tokens */
+  --color-card-border: var(--color-ink-black);
+  --color-card-bg: var(--surface-parchment-canvas);
 }
 
 section {
